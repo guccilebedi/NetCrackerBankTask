@@ -23,6 +23,10 @@ public class Clerk extends Thread {
         return clients.size();
     }
 
+    /**
+     * Serves client. If he puts money, there will be no checking.
+     * Only if the cashier has enough money, the client can get it. Otherwise, he will get a refusal.
+     */
     public void serveClient(Client client) {
         if (client.getOperationType() == OperationType.PUT) {
             cashier.putMoney(client.getMoney());
@@ -37,6 +41,9 @@ public class Clerk extends Thread {
         }
     }
 
+    /**
+     * Waits until the client appears in the queue and serves him.
+     */
     @Override
     public void run() {
         while (true) {

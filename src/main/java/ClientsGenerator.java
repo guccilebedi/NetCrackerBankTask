@@ -9,6 +9,9 @@ public class ClientsGenerator extends Thread {
         this.bank = bank;
     }
 
+    /**
+     * Generates clients each (60000 / CLIENTS_PER_MINUTE) ms and adds them to the bank queues.
+     */
     @Override
     public void run() {
         while (true) {
